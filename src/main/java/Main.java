@@ -15,14 +15,26 @@ final class Main {
 	 * @param args command-line arguments
 	 * @throws Exception as per typical main specifications
 	 */
-//BUG-9 Code Fix Begin
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String accStr;  
 		String choice;
-//BUG-9 Code Fix End		
+//BUG-7 Code Fix Begin
 			System.out.println("Enter your string of numbers or just one number:");
 			accStr = br.readLine();
+			SortDemoData data = new SortDemoData();
+			
+			try {
+				
+				data.initializeArray(accStr);
+			
+			 } catch (NoSuchElementException e) {
+				 System.out.println("Not enough numbers.");
+		     } catch (NumberFormatException e) {
+		    	 System.out.println("Please only use integer values. ");
+		     } catch (NegativeArraySizeException e) {
+		    	 System.out.println("Negative Array Size.");
+		     }  
 			
 			System.out.println("Initial String: ");
 			System.out.println(accStr);
@@ -33,14 +45,7 @@ final class Main {
 			System.out.println("Enter selected algorithm code :");
 			choice = br.readLine();
 			
-		SortDemoData data = new SortDemoData();
-		
 		try {
-			
-			data.initializeArray(accStr);
-			
-			
-			
 			StringBuffer outputBuf = data.runAlgo(Integer.valueOf(choice).intValue());
 			
 			System.out.println("Result: ");
@@ -50,10 +55,8 @@ final class Main {
 			 System.out.println("Not enough numbers.");
 	     } catch (NumberFormatException e) {
 	    	 System.out.println("Please only use integer values. ");
-	     } catch (NegativeArraySizeException e) {
-	    	 System.out.println("Negative Array Size.");
-	     }  
-		
+	     } 
+//BUG-7 Code Fix End
 	
 	}
     
