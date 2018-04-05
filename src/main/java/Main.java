@@ -15,11 +15,12 @@ final class Main {
 	 * @param args command-line arguments
 	 * @throws Exception as per typical main specifications
 	 */
+//BUG-9 Code Fix Begin
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String accStr;  
 		String choice;
-			
+//BUG-9 Code Fix End		
 			System.out.println("Enter your string of numbers or just one number:");
 			accStr = br.readLine();
 			
