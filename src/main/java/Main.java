@@ -15,18 +15,12 @@ final class Main {
 	 * @param args command-line arguments
 	 * @throws Exception as per typical main specifications
 	 */
-	public static void main(final String[] args) throws Exception {
+//BUG-9 Code Fix Begin
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String accStr;  
 		String choice;
-		
-		if (args.length == 0) {
-			accStr = "20";
-			choice = "1";
-			
-		}
-		else{
-			
+//BUG-9 Code Fix End		
 			System.out.println("Enter your string of numbers or just one number:");
 			accStr = br.readLine();
 			
@@ -39,7 +33,6 @@ final class Main {
 			System.out.println("Enter selected algorithm code :");
 			choice = br.readLine();
 			
-		}
 		SortDemoData data = new SortDemoData();
 		
 		try {
